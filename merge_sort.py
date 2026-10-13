@@ -1,17 +1,22 @@
+#recursively splits array until it is size one then merges the ordered arrays
 def merge_sort(arr):
+    #base case
     if len(arr) <= 1:
         return arr
 
- 
+    #splits array
     mid = len(arr)//2
     left = arr[:mid]
     right = arr[mid:]
+
+    #recursion
     left = merge_sort(left)
     right = merge_sort(right)
     arr = merge(left, right)
 
     return arr
 
+#combines two sorted arrays
 def merge(left, right):
     combined = []
     i = 0
