@@ -39,9 +39,5 @@ def merge(left, right):
     
     return combined
 
-print(merge_sort([9,12,1,10,3]))
-print(merge_sort([3,4,5,2,3,6,1]))
-print(merge_sort([8,7,6,5,4,3,2,1]))
-
 
     

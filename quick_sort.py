@@ -1,11 +1,15 @@
-def quick_sort(arr, left, right):
-    if left >= right:
-        return arr
+def quick_sort(arr, left = 0, right = None):
+    sorted_arr = arr.copy()
+    if right is None:
+        right = len(sorted_arr) - 1
 
-    pivot = partition(arr, left, right)
-    arr = quick_sort(arr, left, pivot - 1)
-    arr = quick_sort(arr, pivot + 1, right)
-    return arr
+    if left >= right:
+        return sorted_arr
+
+    pivot = partition(sorted_arr, left, right)
+    sorted_arr = quick_sort(sorted_arr, left, pivot - 1)
+    sorted_arr = quick_sort(sorted_arr, pivot + 1, right)
+    return sorted_arr
 
 
 def partition(arr, left, right):
@@ -21,7 +25,7 @@ def partition(arr, left, right):
             temp = arr[left]
             arr[left] = arr[right]
             arr[right] = temp
-            left -= 1
+            left += 1
             right -= 1
     temp = arr[left]
     arr[left] = arr[pivot]
@@ -30,4 +34,5 @@ def partition(arr, left, right):
     return pivot
 
 numbers = [4,3,5,6,1]
-print(quick_sort(numbers, 0, len(numbers) - 1))
+print(quick_sort(numbers))
+print(quick_sort([1,10,9,5,7,7,8,6]))
